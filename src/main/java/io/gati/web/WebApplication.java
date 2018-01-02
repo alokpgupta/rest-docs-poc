@@ -10,7 +10,6 @@ public class WebApplication {
 	public static void main(String... args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(WebApplication.class);
 		builder.web(WebApplicationType.REACTIVE);
-		builder.child(WebApplication.class);
 		builder.run(args);
 	}
 }
