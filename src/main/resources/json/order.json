@@ -1,0 +1,49 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://io.gati/order.json",
+  "type": "object",
+  "properties": {
+    "isDraft": {
+      "type": "boolean"
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+      	  "type": "object",
+	      "properties": {
+	        "id": {
+	          "type": "integer",
+	          "required": true
+	        },
+	        "itemId": {
+	          "type": "string",
+	          "pattern": "\\w+",
+	          "required": true
+	        },
+		    "price": {
+		      "type": "number"
+		    },
+		    "quantity": {
+		      "type": "integer",
+		      "required": true
+		    }
+	      }
+      }
+    },
+    "id": {
+      "format": "uuid"
+    },
+    "brand": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "pattern": "[A-Z]+"
+    }
+    ,
+    "emailId": {
+      "format": "email",
+      "pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
+    }
+  }
+}

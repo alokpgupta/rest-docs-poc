@@ -1,0 +1,53 @@
+= Order REST API
+v1, Alok Gupta
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:highlightjs-theme: github
+:toc: left
+:toclevels: 3
+:sectlinks:
+:sectnums:
+
+[introduction]
+== Introduction
+... some warm introductory words... .
+
+== Creating a Project
+
+=== Order Create Request
+include::{snippets}/order/create/success/http-request.adoc[]
+
+==== Order Create Curl Request
+include::{snippets}/order/create/success/curl-request.adoc[]
+
+==== Order Create Request structure
+include::{snippets}/order/create/success/request-fields.adoc[]
+
+=== Order Create Success Response
+include::{snippets}/order/create/success/http-response.adoc[]
+
+=== Order Create Error Response
+==== Invalid Brand
+include::{snippets}/order/create/invalidBrand/http-response.adoc[]
+
+==== Invalid Email Id
+include::{snippets}/order/create/invalidEmailId/http-response.adoc[]
+
+=== Order Fetch Request
+include::{snippets}/order/fetch/success/http-request.adoc[]
+
+==== Order Fetch Request Headers
+include::{snippets}/order/fetch/success/request-headers.adoc[]
+
+==== Order Fetch Curl Request
+include::{snippets}/order/fetch/success/curl-request.adoc[]
+
+=== Order Fetch Response
+include::{snippets}/order/fetch/success/http-response.adoc[]
+
+==== Order Fetch Response Headers
+include::{snippets}/order/fetch/success/response-headers.adoc[]
+
+==== Order Fetch Response Structure
+include::{snippets}/order/fetch/success/response-fields.adoc[]
