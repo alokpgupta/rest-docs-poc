@@ -1,5 +1,6 @@
 package io.gati.web.config;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +9,7 @@ import org.springframework.restdocs.constraints.ConstraintDescriptionResolver;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 
 import io.gati.web.doc.CustomConstraintDescriptionResolver;
 import io.gati.web.doc.OrderDocumentation;
@@ -36,8 +38,10 @@ public class WebTestConfig {
 	}
 	
 	@Bean
-	public ObjectMapper objectMapper() {
-		return new ObjectMapper();
+	public ObjectMapper objectMapper(ObjectProvider<Jdk8Module> jdk8Module) {
+		ObjectMapper mapper = new ObjectMapper();
+		jdk8Module.ifAvailable(mapper::registerModule);
+		return mapper;
 	}
 	
 	@Bean

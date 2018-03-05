@@ -42,6 +42,7 @@ public class OrderDocumentation {
 		ConstrainedFields orderFields = new ConstrainedFields(Order.class, constraintDescriptionResolver);
 		ConstrainedFields lineFields = new ConstrainedFields(Line.class, constraintDescriptionResolver);
 		return requestFields(orderFields.withPath("emailId").description(EMAIL_ID_DESC),
+				orderFields.withPath("id").type(JsonFieldType.STRING).description(ORDER_ID_DESC).optional(),
 				orderFields.withPath("brand").description(ORDER_BRAND_DESC),
 				orderFields.withPath("isDraft").description(ORDER_IS_DRAFT_DESC),
 				lineFields.withPath("lines[].id").description(LINE_ID_DESC),

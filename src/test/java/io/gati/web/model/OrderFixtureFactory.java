@@ -12,8 +12,8 @@ public class OrderFixtureFactory {
 				.withLines(new ArrayList<>());
 		val line1 = new Line().withId(1).withItemId("S623812").withQuantity(2);
 		val line2 = new Line().withId(2).withItemId("S623814").withPrice(BigDecimal.ONE).withQuantity(1);
-		order.getLines().add(line1);
-		order.getLines().add(line2);
+		order.getLines().map(list -> list.add(line1));
+		order.getLines().map(list -> list.add(line2));
 		return order;
 	}
 }

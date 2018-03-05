@@ -97,9 +97,8 @@ public class OrderControllerTest {
 	}
 
 	@Test
-	public void testCreateOrder() {
+	public void testCreateOrder() throws JsonProcessingException {
 		Order order = OrderFixtureFactory.createDefaultOrder();
-
 		val response = webTestClient.post().uri("/order").accept(MediaType.APPLICATION_JSON).syncBody(order).exchange()
 				.expectStatus().isCreated();
 		response.expectHeader().valueMatches(HttpHeaders.LOCATION, "^(/order/).*$");

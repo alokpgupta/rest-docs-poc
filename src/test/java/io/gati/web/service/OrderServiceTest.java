@@ -48,7 +48,7 @@ public class OrderServiceTest {
 
 		val actualOrderMono = orderService.findOrder(orderId);
 
-		StepVerifier.create(actualOrderMono).consumeNextWith(order -> Assert.assertEquals(order.getId(), orderId))
+		StepVerifier.create(actualOrderMono).consumeNextWith(order -> Assert.assertEquals(order.getId().get(), orderId))
 				.thenCancel().verify();
 		verify(webClient, times(1)).get();
 		verify(requestHeadersUriSpec, times(1)).uri("/order/" + orderId);

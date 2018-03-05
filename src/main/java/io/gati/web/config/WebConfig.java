@@ -11,6 +11,8 @@ import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+
 @Configuration
 @EnableWebFlux
 public class WebConfig implements WebFluxConfigurer {
@@ -44,5 +46,12 @@ public class WebConfig implements WebFluxConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
             registry.addResourceHandler("/**")
                     .addResourceLocations("/static", "classpath:/static/");
+    }
+    
+    @Bean
+    public Jdk8Module jdk8Module() {
+    		Jdk8Module jdk8Module = new Jdk8Module();
+    		jdk8Module.configureAbsentsAsNulls(true);
+    		return jdk8Module;
     }
 }
